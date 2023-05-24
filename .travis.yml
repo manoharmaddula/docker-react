@@ -1,0 +1,9 @@
+sudo: required
+services : 
+  - docker
+
+before_install:
+  - docker build -t vmaddula/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true vmaddula/docker-react npm run test
